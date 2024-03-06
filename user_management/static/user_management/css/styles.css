@@ -1,0 +1,246 @@
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between; /* Align items to the start and end of the container */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+}
+
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    
+}
+
+.navbar p {
+    color: white;
+    text-decoration: none;
+    padding-left:20px ;
+}
+
+/* Custom styling for the "Solutions" link */
+.navbar a#solutions {
+    background: #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    color: white; /* White text */
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+/* Animation keyframes for color change */
+@keyframes changeColors {
+    0% {
+        background: linear-gradient(to right, #ff8a00, #e52e71); /* Start color */
+    }
+    50% {
+        background: linear-gradient(to right, #0b6e45, #2cf0af); /* Mid color */
+    }
+    100% {
+        background: linear-gradient(to right, #5f69f5, #e52e71); /* End color */
+    }
+}
+
+.navbar a#solutions:hover {
+    animation: changeColors 0.6s infinite alternate; /* Animation for color change */
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex-basis: calc(25% - 20px); /* Set width to 25% minus spacing */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px; /* Add margin between cards */
+    box-sizing: border-box;
+    max-width: 200px; /* Limit maximum width of each card */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .card {
+        flex-basis: calc(50% - 20px); /* Set width to 50% minus spacing */
+        max-width: none; /* Remove maximum width */
+    }
+}
+
+
+
+/*body*/
+body{
+    margin: 0px;
+    font-family: "Arial", sans-serif;
+}
+
+
+.title {
+    color: #333; /* Set the text color */
+    font-size: 24px; /* Set the font size */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    margin-top: 40px; /* Add some top margin for spacing */
+}
+
+
+#home {
+    padding: 50px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set height to viewport height */
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px; /* Limit the maximum width */
+    width: 100%; /* Take full width */
+}
+
+.content .left {
+    flex: 1;
+    margin-right: 20px;
+    text-align: center; /* Center text */
+}
+
+.content .right {
+    flex: 1;
+}
+
+/* Adjust styles as needed */
+h2 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 25px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents image from being inline */
+    margin: 0 auto; /* Center image horizontally */
+}
+.join-us-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.join-us-button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+#features {
+    height: 100vh; 
+    background-color: #F7F6F2; /* Change background color to white */
+    padding: 20px; /* Add padding for content inside */
+    text-align: center; /* Center text content */
+}
+.advantages {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to next line */
+    gap: 20px; /* Add spacing between cards */
+    justify-content: center; /* Center align cards horizontally */
+    align-items: center; /* Center align cards vertically */
+}
+
+
+#contact {
+    height: 100vh; 
+    background-color: #C8C6C6; /* Change background color to white */
+    padding: 20px; /* Add padding for content inside */
+    text-align: center; /* Center text content */
+}
+
+#solutions {
+     height: 100vh; 
+    background-color: #4B6587; /* Change background color to white */
+    padding: 20px; /* Add padding for content inside */
+    text-align: center; /* Center text content */
+}
+#solutions .title {
+    font-size: 45px;
+    color: #EEEEEE;
+    padding: 20px; /* Add padding for content inside */
+    text-align: center; /* Center text content */
+}
+
+/* Define keyframes for the animation */
+@keyframes jump {
+    0% { transform: translateY(0); } /* Start position */
+    50% { transform: translateY(-10px); } /* Mid position (jump up) */
+    100% { transform: translateY(0); } /* End position */
+}
+
+/* Apply animation to each word */
+#solutions .title span {
+    display: inline-block; /* Ensure each word is treated as a separate element */
+}
+
+/* Apply animation */
+#solutions .title span:nth-child(1) {
+    animation: jump 1.5s infinite alternate; /* Apply animation to the first word */
+}
+
+#solutions .title span:nth-child(2) {
+    animation: jump 1.5s infinite alternate; /* Apply animation to the second word */
+    animation-delay: 0.2s; /* Delay the animation of the second word */
+}
+
+/* Repeat the above pattern for other words */
+#solutions .title span:nth-child(3) {
+    animation: jump 1.5s infinite alternate; /* Apply animation to the third word */
+    animation-delay: 0.2s; /* Delay the animation of the third word */
+}
+#solutions .title span:nth-child(4) {
+    animation: jump 1.5s infinite alternate; /* Apply animation to the first word */
+}
+
+#solutions .title span:nth-child(5) {
+    animation: jump 3.5s infinite alternate; /* Apply animation to the second word */
+    animation-delay: 0.1s; /* Delay the animation of the second word */
+}
+
+/* Repeat the above pattern for other words */
+#solutions .title span:nth-child(6) {
+    animation: jump 2.5s infinite alternate; /* Apply animation to the third word */
+    animation-delay: 0.2s; /* Delay the animation of the third word */
+}
+
+/* Repeat the above pattern for other words */
+
+
+#contact .title{
+    font-size: 45px;
+    color: #EEEEEE;
+    padding: 20px; /* Add padding for content inside */
+    text-align: center; /* Center text content */
+}
+
+

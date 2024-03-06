@@ -1,0 +1,24 @@
+<!-- user_management/templates/user_management/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_management/css/registrationStyle.css' %}">
+</head>
+<body>
+    <div class="registration-form">
+        <h2>Registration</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.errors }} <!-- Display form-level errors -->
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p> <!-- Add login link here -->
+    </div>
+    
+</body>
+</html>

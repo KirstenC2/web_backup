@@ -1,0 +1,80 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomWebApp</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_management/css/styles.css' %}">
+</head>
+<body>
+   <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="#" class="navbar-brand">Room AI Designer</a>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+            <a href="#solutions">Choose a plan</a>
+            <a href="{% url 'login' %}">Login</a> <!-- Add registration link here -->
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="home">
+        <div class="content">
+            <!-- Your home section content goes here -->
+        </div>
+    </div>
+
+    <div id="features">
+        <!-- Your features section content goes here -->
+    </div>
+
+    <div id="contact">
+        <!-- Your contact section content goes here -->
+    </div>
+
+    <div id="solutions">
+        <div class="cards-container">
+            <!-- Card content goes here -->
+            <div class="card" id="basicPlan">
+                <h1>15/month</h1>
+            </div>
+            <div class="card" id="intermediatePlan">
+                <h1>29/month</h1>
+            </div>
+            <div class="card" id="advancedPlan">
+                <h1>79/month</h1>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Smooth scroll JavaScript -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        document.getElementById("basicPlan").addEventListener("click", function() {
+        // Redirect to the Stripe API URL
+        window.location.href = "https://buy.stripe.com/test_6oEeUZ6Fi82b31C7ss";
+        });
+        document.getElementById("intermediatePlan").addEventListener("click", function() {
+        // Redirect to the Stripe API URL
+        window.location.href = "https://buy.stripe.com/test_dR6dQV8Nq0zJ31C5kl";
+        });
+        document.getElementById("advancedPlan").addEventListener("click", function() {
+        // Redirect to the Stripe API URL
+        window.location.href = "https://buy.stripe.com/test_7sI4gl2p2ben59K9AC";
+        });
+    </script>
+</body>
+</html>

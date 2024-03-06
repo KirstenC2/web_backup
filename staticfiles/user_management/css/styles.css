@@ -1,0 +1,56 @@
+/* styles.css */
+
+/* Sticky navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #333; /* Background color of the navigation bar */
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+    float: left;
+    display: block;
+    color: white; /* Text color of the links */
+    text-align: center;
+    padding: 14px 20px; /* Padding around the links */
+    text-decoration: none;
+}
+
+/* Change background color of links on hover */
+.navbar a:hover {
+    background-color: #ddd; /* Background color of links on hover */
+    color: black; /* Text color of links on hover */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333; /* Background color of dropdown */
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* Style links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: white; /* Text color of dropdown links */
+    padding: 12px 16px; /* Padding around dropdown links */
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Change background color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd; /* Background color of dropdown links on hover */
+    color: black; /* Text color of dropdown links on hover */
+}
+
+/* Show the dropdown content when hovering over dropdown button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
