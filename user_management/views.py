@@ -13,6 +13,7 @@ import stripe
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
+
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def user_homepage(request):
@@ -43,21 +44,14 @@ import random
 
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            # Save the user
             user = form.save()
-            # Create a Profile instance and assign a memberid
-            profile = Profile.objects.create(user=user)
-            # Log in the user
             login(request, user)
-            # Redirect to the user homepage
-            return redirect('login')
+            return redirect('user_homepage')  # Redirect to user homepage after registration
     else:
-        form = CustomUserCreationForm()
-    return render(request, 'user_management/register.html', {'form': form})
-
-
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
 
 
 def create_payment(request):

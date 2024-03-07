@@ -2,6 +2,7 @@
 
 from django.urls import path
 from . import views
+from .views import register
 from .views import get_user_data,register
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import views as auth_views  # Make sure to import auth_views

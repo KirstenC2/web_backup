@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'RoomWebApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'room',  # Name of your MySQL database
+        'NAME': 'roomai',  # Name of your MySQL database
         'USER': 'root',  # MySQL database username
         'PASSWORD': 'admin1',  # MySQL database password
         'HOST': 'localhost',  # MySQL database host (leave it as localhost if it's running locally)
