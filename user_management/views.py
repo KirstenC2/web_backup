@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, redirect,get_object_or_404
 from django.template import loader
 from django.http import HttpResponse,JsonResponse
@@ -5,19 +6,26 @@ from .models import Profile
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login,logout, authenticate
 from django.shortcuts import render, redirect
 import uuid
 from django.urls import reverse
 import stripe
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from .forms import CustomUserCreationForm
+import random
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def user_homepage(request):
     return render(request, 'user_management/profile.html')
+
+
+
+
 
 def main(request):
   return render(request, 'main.html')
@@ -39,19 +47,18 @@ def get_user_data(request, user_id):
     return JsonResponse(user_data)
 
 
-from .forms import CustomUserCreationForm
-import random
+
+
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('user_homepage')  # Redirect to user homepage after registration
+            form.save()
+            return redirect('login')
     else:
-        form = UserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})
+        form = CustomUserCreationForm()
+    return render(request, 'user_management/register.html', {'form': form})
 
 
 def create_payment(request):
@@ -114,3 +121,46 @@ def get_logged_in_user(request, user_id):
 
     # Return user data as JSON response
     return JsonResponse(user_data)
+
+def setting_cookie(request, username):
+    response = HttpResponse()
+    response.set_cookie('Username', username)
+
+    return 0
+
+
+
+def getting_cookie(request):
+    usernameCookie = request.COOKIES.get('Username', '')
+    return usernameCookie
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            if setting_cookie(request,username)==0:
+                login(request, user)
+                return render(request, 'user_homepage.html')
+        else:
+            # Handle invalid login credentials
+            return render(request, 'login.html', {'error_message': 'Invalid username or password'})
+    else:
+        return render(request, 'login.html')
+    
+def user_profile(request):
+    # Retrieve session data
+    username = request.COOKIES.get('username')
+
+    # Print session data to console
+    print("Session username:", username)
+
+    # Add your other view logic here
+
+    return render(request, 'user_management/profile.html', {'username': username})
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Redirect to the login page after logout

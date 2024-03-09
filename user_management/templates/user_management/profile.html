@@ -1,4 +1,3 @@
-<!-- user_management/templates/user_management/profile.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +9,24 @@
 </head>
 <body>
     <h2>Welcome to your profile page!</h2>
-    <!-- Add profile page content here -->
+    {% if learning_cookie %}
+        <p>Learning Cookie: {{ learning_cookie }}</p>
+    {% else %}
+        <p>No learning cookie found</p>
+    {% endif %}
+    {% if last_connection_cookie %}
+        <p>Last Connection Cookie: {{ last_connection_cookie }}</p>
+    {% else %}
+        <p>No last connection cookie found</p>
+    {% endif %}
+    {% if username_cookie %}
+        <p>Username Cookie: {{ username_cookie }}</p>
+    {% else %}
+        <p>No username cookie found</p>
+    {% endif %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
 </body>
 </html>
