@@ -1,129 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    {% load static %}
+<!-- profile.html -->
+{% extends 'base.html' %}
 
-
-    <link rel="stylesheet" href="{% static 'user_management/css/styles.css' %}">
-    <!-- Add any additional styles or scripts here -->
-</head>
-<body>
-    <div>
-        <nav class="navbar">
-            <a href="/">Room AI</a>
-            <a href="#" id="home-link" class="{% if request.path == '/accounts/profile/' %}active{% endif %}">Images Bank</a>
-            <a href="#" id="ai-designer-link" class="{% if 'ai_designer' in request.path %}active{% endif %}">AI Designer</a>
-            <a href="#" id="profile-link" class="{% if 'profile' in request.path %}active{% endif %}">Profile</a>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form>
-        </nav>
-        
-    </div>
-    <div id="page-content">
-        <!-- Page content will be loaded here -->
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Function to load profile data
-            function loadProfileData() {
-                $('#page-content').load('profile.html');
-            }
-
-            // Function to load home data
-            function loadHomeData() {
-                $('#page-content').html(`
-                    <h2>Welcome Back, {{ user.username }}!</h2>
-                    <h3>Your Images</h3>
-                    <div id="searchBarContainer"></div>
-                    <div id="userImages">
-                        <!-- Images will be displayed here -->
-                    </div>
-                `);
-
-                // Fetch user images data asynchronously
-                $.get("/setc/", function(data) {
-                    // Parse the JSON data
-                    var images = JSON.parse(data);
-
-                    // Create a table element
-                    var table = $('<table>').addClass('image-table');
-
-                    // Create table header
-                    var headerRow = $('<tr>').appendTo(table);
-                    $('<th>').text('Image').appendTo(headerRow);
-                    $('<th>').text('Description').appendTo(headerRow);
-                    $('<th>').text('Created At').appendTo(headerRow);
-
-                    // Iterate over the images and display them in the table
-                    $.each(images, function(index, image) {
-                        // Create a row for each image
-                        var row = $('<tr>').appendTo(table);
-
-                        // Append image, description, and created_at to the row
-                        $('<td>').append($('<img>').attr('src', image.fields.image_url).attr('alt', 'User Image')).appendTo(row);
-                        $('<td>').text(image.fields.image_name).appendTo(row);
-                        $('<td>').text(image.fields.created_at).appendTo(row); // Assuming created_at is a field in your model
-                    });
-
-                    // Append the table to the userImages div
-                    $('#userImages').append(table);
-
-                    var searchBar = $('<input>').attr('type', 'text').attr('placeholder', 'Search...');
-                    $('#searchBarContainer').append(searchBar);
-
-                    // Add event listener for search input
-                    searchBar.on('input', function() {
-                        var searchText = $(this).val().toLowerCase();
-
-                        // Iterate over the rows of the table and hide/show them based on the search text
-                        $('table tr').each(function(index, row) {
-                            // Skip the header row
-                            if (index === 0) return;
-                            
-                            var rowData = $(row).text().toLowerCase(); // Get the text of the entire row
-
-                            // Show/hide the row based on whether the row contains the search text
-                            $(row).toggle(rowData.includes(searchText));
-                        });
-                    });
-                });
-            }
-
-            // Function to load AI designer data
-            function loadAIDesignerData() {
-                $('#page-content').html(`
-                    <!-- Implement AI Designer content here -->
-                `);
-            }
-
-            // Click event for profile link
-            $('#profile-link').on('click', function(event) {
-                event.preventDefault(); // Prevent the default behavior of the link
-                loadProfileData();
-            });
-
-            // Click event for AI designer link
-            $('#ai-designer-link').on('click', function(event) {
-                event.preventDefault(); // Prevent the default behavior of the link
-                loadAIDesignerData();
-            });
-
-            // Click event for home link
-            $('#home-link').on('click', function(event) {
-                event.preventDefault(); // Prevent the default behavior of the link
-                loadHomeData();
-            });
-
-            // Initial load
-            loadProfileData(); // Load profile data by default
-        });
-    </script>
-</body>
-</html>
+{% block title %}Profile - Room AI{% endblock %}
+{% block content %}
+<div id="profile-content">
+    <h2>Welcome, {{ user.username }}!</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>First Name: {{ user.first_name }}</p>
+    <p>Last Name: {{ user.last_name }}</p>
+    <p>Joined since: {{ user.date_joined }}</p>
+    <p>Birth day: {{ user.date_of_birth }}</p>
+    <!-- Add more user attributes as needed -->
+</div>

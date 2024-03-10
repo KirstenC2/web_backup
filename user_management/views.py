@@ -66,7 +66,7 @@ def google_oauth_callback(request):
 
 
 def user_homepage(request):
-    return render(request, 'user_management/profile.html')
+    return render(request, 'user_management/base.html')
 
 
 def profile(request):
