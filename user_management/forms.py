@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
 from django.utils import timezone
+from .models import Image
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -29,4 +30,11 @@ class CustomUserCreationForm(UserCreationForm):
             
             profile.save()
         return user
+    
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = ['image', 'description']
+
 

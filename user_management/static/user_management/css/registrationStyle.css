@@ -1,51 +1,170 @@
-/* user_management/static/user_management/css/registrationStyle.css */
-.registration-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+.section-1-Tiw {
     background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.registration-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.registration-form form {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-}
-
-.registration-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.registration-form input[type="text"],
-.registration-form input[type="email"],
-.registration-form input[type="password"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.registration-form button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.registration-form button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
-}
+    overflow: hidden;
+    padding: 8.2rem 7.8rem 14rem 7.8rem;
+    position: relative;
+    width: 100%;
+  
+    .register-page-3SF {
+      color: #000000;
+      flex-shrink: 0;
+      font-family: Nunito, 'Source Sans Pro';
+      font-size: 2.3609rem;
+      font-weight: 400;
+      line-height: 1.3625;
+      margin: 0rem 0rem 3.2rem 3.3rem;
+      white-space: nowrap;
+    }
+    .section-1-BqH {
+      color: #000000;
+      flex-shrink: 0;
+      font-family: Nunito, 'Source Sans Pro';
+      font-size: 2.3609rem;
+      font-weight: 400;
+      line-height: 1.3625;
+      margin: 0rem 0rem 19rem 3.3rem;
+      white-space: nowrap;
+    }
+    .auto-group-1rvv-uWP {
+      flex-shrink: 0;
+      height: 51.3rem;
+      position: relative;
+      width: 100%;
+  
+      .group-48095924-3Mh {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 39.2rem;
+        left: 30.6rem;
+        position: absolute;
+        top: 0;
+        width: 71.9rem;
+  
+        .get-best-price-for-o-Z59 {
+          flex-shrink: 0;
+          font-family: Nunito, 'Source Sans Pro';
+          font-size: 3.6rem;
+          font-weight: 700;
+          line-height: 1.3625;
+          margin-bottom: 5.4rem;
+          max-width: 47.3rem;
+          text-align: center;
+        }
+        .we-give-you-the-opti-4nb {
+          color: #2c1e49;
+          flex-shrink: 0;
+          font-family: Nunito, 'Source Sans Pro';
+          font-size: 1.8rem;
+          font-weight: 300;
+          line-height: 1.3625;
+          margin-bottom: 9.2rem;
+          max-width: 71.9rem;
+          text-align: center;
+        }
+        .button-AKq {
+          background-color: #f5f5f5;
+          border: solid 0.1rem rgba(0, 0, 0, 0.200000003);
+          border-radius: 0.8rem;
+          box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.150000006);
+          box-sizing: border-box;
+          flex-shrink: 0;
+          height: 4.8rem;
+          margin: 0rem 15.9rem 0rem 16rem;
+          padding: 0.9rem 12.45rem 0.9rem 7.7rem;
+          width: calc(100% - 31.9rem);
+  
+          .group-48095723-FMH {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            width: 100%;
+  
+            .googleicons-1-bAF {
+              flex-shrink: 0;
+              height: 3rem;
+              margin-right: 1.75rem;
+              object-fit: cover;
+              vertical-align: top;
+              width: 3rem;
+            }
+            .sign-in-using-google-5Dq {
+              align-items: baseline;
+              color: #000000;
+              display: flex;
+              flex-shrink: 0;
+              font-family: Inter, 'Source Sans Pro';
+              font-size: 1.6rem;
+              font-weight: 700;
+              line-height: 1.2102272511;
+              margin-top: 0.3rem;
+              text-align: center;
+              white-space: nowrap;
+  
+              .sign-in-using-google-5Dq-sub-0 {
+                color: #000000;
+                font-family: Nunito, 'Source Sans Pro';
+                font-size: 1.6rem;
+                font-weight: 500;
+                line-height: 1.3625;
+              }
+              .sign-in-using-google-5Dq-sub-1 {
+                color: #000000;
+                font-family: Nunito, 'Source Sans Pro';
+                font-size: 1.6rem;
+                font-weight: 700;
+                line-height: 1.3625;
+              }
+            }
+          }
+        }
+      }
+      .group-48095858-Gb9 {
+        align-items: center;
+        background-color: #e6a78b;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 20.9rem;
+        left: 0;
+        padding: 4.3rem 53.5rem 3.3rem 50rem;
+        position: absolute;
+        row-gap: 1.7rem;
+        top: 30.4rem;
+        width: 134.7rem;
+  
+        .content-area-gutter-cg-8dM {
+          color: #000000;
+          flex-shrink: 0;
+          font-family: Nunito, 'Source Sans Pro';
+          font-size: 2.3609rem;
+          font-weight: 400;
+          line-height: 1.3625;
+          white-space: nowrap;
+        }
+        .ggutter-Se3 {
+          color: #000000;
+          flex-shrink: 0;
+          font-family: Nunito, 'Source Sans Pro';
+          font-size: 2.3609rem;
+          font-weight: 400;
+          line-height: 1.3625;
+          margin-right: 1.1rem;
+          white-space: nowrap;
+        }
+        .allign-components-middle-Aa3 {
+          color: #000000;
+          flex-shrink: 0;
+          font-family: Nunito, 'Source Sans Pro';
+          font-size: 2.3609rem;
+          font-weight: 400;
+          line-height: 1.3625;
+          margin-right: 1.1rem;
+          white-space: nowrap;
+        }
+      }
+    }
+  }

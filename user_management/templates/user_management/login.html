@@ -1,23 +1,44 @@
-<!-- login.html -->
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            height: 100vh;
         }
 
         .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
+            display: flex;
+            margin: auto;
+            width:80%;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .left-side {
+            width:50%;
+            background-image: url('your-image-url.jpg');
+            background-size: cover;
+        }
+
+        .right-side {
+            width:50%;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            flex-direction: column; /* Align items in a column */
         }
 
         h2 {
@@ -28,6 +49,7 @@
         form {
             display: flex;
             flex-direction: column;
+            align-items: center; /* Center form items horizontally */
         }
 
         label {
@@ -41,6 +63,14 @@
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 3px;
+        }
+        .vector-YiT {
+        flex-shrink: 0;
+        height: 0.2175rem;
+        margin-right: 0.7667rem;
+        object-fit: contain;
+        vertical-align: top;
+        width: 4.819rem;
         }
 
         button[type="submit"] {
@@ -60,23 +90,35 @@
             color: red;
             margin-top: 10px;
         }
+        .left-side img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Login</h2>
-        <form method="post">
-            {% csrf_token %}
-            <label for="id_username">Username:</label>
-            {{ form.username }}
-            <label for="id_password">Password:</label>
-            {{ form.password }}
-            <button type="submit">Login</button>
-        </form>
-        {% if form.errors %}
-            <p class="error-message">Invalid username or password.</p>
-        {% endif %}
-        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p> <!-- Add registration link here -->
+        <div class="left-side">
+            <img alt="Image">
+        </div>
+        <div class="right-side">
+            <h2>Login</h2>
+            <form method="post" >
+                {% csrf_token %}
+                
+                <label for="id_username">Username:</label>
+                {{ form.username }}
+                <label for="id_password">Password:</label>
+                {{ form.password }}
+                <button type="submit">Login</button>
+            </form>
+            {% if form.errors %}
+                <p class="error-message">Invalid username or password.</p>
+            {% endif %}
+            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+            
+            <p><a href="/">Back to Room AI</p>
+        </div>
     </div>
 </body>
 </html>

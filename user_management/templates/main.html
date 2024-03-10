@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'user_management/css/styles.css' %}">
 </head>
 <body>
-   <!-- Navigation bar -->
     <div class="navbar">
         <a href="#" class="navbar-brand">Room AI Designer</a>
         <div>
@@ -17,10 +16,14 @@
             <a href="#features">Features</a>
             <a href="#contact">Contact</a>
             <a href="#solutions">Choose a plan</a>
-            <a href="{% url 'login' %}">Login</a> <!-- Add registration link here -->
+            {% if request.session.session_key %}
+                <!-- User is logged in, don't display the login link -->
+                <a href="profile/">My Profile</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a> <!-- Add registration link here -->
+            {% endif %}
         </div>
     </div>
-
     <!-- Main content -->
     <div id="home">
         <div class="content">
@@ -51,30 +54,51 @@
         </div>
     </div>
     
+<!-- Smooth scroll JavaScript -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    <!-- Smooth scroll JavaScript -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-        document.getElementById("basicPlan").addEventListener("click", function() {
-        // Redirect to the Stripe API URL
-        window.location.href = "https://buy.stripe.com/test_6oEeUZ6Fi82b31C7ss";
-        });
-        document.getElementById("intermediatePlan").addEventListener("click", function() {
-        // Redirect to the Stripe API URL
-        window.location.href = "https://buy.stripe.com/test_dR6dQV8Nq0zJ31C5kl";
-        });
-        document.getElementById("advancedPlan").addEventListener("click", function() {
-        // Redirect to the Stripe API URL
-        window.location.href = "https://buy.stripe.com/test_7sI4gl2p2ben59K9AC";
-        });
-    </script>
+    });
+
+    // Function to check if session ID exists
+    function hasSessionId() {
+        return document.cookie.split(';').some((item) => item.trim().startsWith('sessionid='));
+    }
+
+    // Function to handle payment redirect
+    function redirectToPayment(stripeUrl) {
+        // Check if the session ID exists (user is authenticated)
+        if (!hasSessionId()) {
+            // Store the target Stripe API URL in sessionStorage
+            sessionStorage.setItem('targetStripeUrl', stripeUrl);
+            // Redirect the user to the login page with the next parameter
+            window.location.href = "/login/"; // Redirect to login page
+        } else {
+            // Redirect to the specified Stripe API URL for payment
+            window.location.href = stripeUrl;
+        }
+    }
+
+    // Event listeners for different plan cards
+    document.getElementById("basicPlan").addEventListener("click", function() {
+        redirectToPayment("https://buy.stripe.com/test_6oEeUZ6Fi82b31C7ss"); // Change plan URL as needed
+    });
+
+    document.getElementById("intermediatePlan").addEventListener("click", function() {
+        redirectToPayment("https://buy.stripe.com/test_dR6dQV8Nq0zJ31C5kl"); // Change plan URL as needed
+    });
+
+    document.getElementById("advancedPlan").addEventListener("click", function() {
+        redirectToPayment("https://buy.stripe.com/test_7sI4gl2p2ben59K9AC"); // Change plan URL as needed
+    });
+</script>
+
+
 </body>
 </html>
