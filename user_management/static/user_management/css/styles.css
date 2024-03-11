@@ -1,35 +1,118 @@
 body{
     font-family: 'Nunito', sans-serif; /* Use Nunito font */
     margin:0;
+    background-image:url("BG-services.png");
+
+
 }
-.container{
+.container {
+ 
+    align-items: flex-start;
+    padding: 10px;
+    width: 95%;
+
+    isolation: isolate;
+    height: 1288px;
+    top: 1px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-bottom-right-radius: 50px;
     
+
+    margin: auto;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
 }
 
-/* Line 4 */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;
+    border: 1px solid #D3C9E9;
+    overflow: hidden;
     color: #fff;
+    max-height: 114px; /* Set maximum height */
+    position: relative; /* Required for absolute positioning */
 }
+
+.navbar .left {
+    display: flex;
+    align-items: flex-start;
+}
+
+.navbar .left ul {
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.navbar .left li {
+
+    float: left;
+}
+
+.navbar .left img {
+    margin-right: 10px;
+    max-height: 100%; /* Ensure the image doesn't exceed the navbar's height */
+}
+
+.navbar .left li p {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom:15px;
+    color: #583B91;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    position: absolute; /* Position the paragraph absolutely */
+    bottom: 0; /* Stick the paragraph to the bottom */
+}
+
 
 .navbar a {
-    text-decoration: none;
-    color: #fff;
-    margin-left: 20px; /* Adjust the spacing between links */
+    /* SEO-Xpert */
+
+    width: 49px;
+    height: 27px;
+    left: 108px;
+    top: 71px;
+
+    font-family: 'Avenir LT Std';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+
+    /* Christalle/700 */
+    color: #583B91;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
+.navbar img{
+    /* 16-STYLY_logo 2 */
+    width: 73px;
+    height: 66px;
+    left: 43px;
+    top: 24px;
 
+
+}
 
 
 
 .orange-button {
     background-color: #FA6F40;
     border-radius: 1.25rem;
+    width: 143px;
+    height:51px;
     padding: 10px 20px;
 }
 
@@ -59,27 +142,6 @@ body{
 }
 
 
-.section1 {
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 10px;
-    gap: 10px;
-    isolation: isolate;
-    height: 1288px;
-    top: 1px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    left: 100%;
-    right: -100%;
-    top: 100%;
-    bottom: -100%;
-    background: linear-gradient(298.68deg, rgba(250, 111, 64, 0.1) -23.45%, rgba(211, 201, 233, 0.2) 25.94%, rgba(248, 248, 249, 0.4) 75.33%);
-    width:95%;
-    margin: auto;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    z-index: 0;
-}
 
 
 .section1 .left {
@@ -213,14 +275,6 @@ body{
 
 }
 
-.section2 .image-row{
-    /* Group 48095708 */
-
-    left: 68px;
-    background-color: #2C1E49;
-    height: 306px;
-
-}
 
 .section3 {
     /* Design Beyond Limits Where Humans and AI Collaborate */
@@ -240,6 +294,7 @@ body{
 .section3 {
     /* Design Beyond Limits Where Humans and AI Collaborate */
     height:1828px;
+    background-image: url('{% static "user_management/css/section3_Background-1.png" %}');
 }
 
 .section3 p:nth-child(1) {
@@ -250,7 +305,11 @@ body{
     text-fill-color: transparent;
 }
 
-section .title-block{
+.container .section3 {
+    margin-left: 20px;
+}
+
+.container .section3 .title-block{
     font-weight: 700;
     font-size: 48px;
     width: 408px;
@@ -258,3 +317,244 @@ section .title-block{
     height: 1115px;
 }
 
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.gallery-row {
+    display: flex;
+    justify-content: space-between;
+    width: 1359.26px;
+    height: 306.43px;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.image-container img {
+    width: calc((100% - 20px) / 3); /* Adjust as needed */
+    height: 100%;
+    object-fit: cover; /* Preserve aspect ratio */
+    /* Rectangle 11 */
+box-sizing: border-box;
+width: 397.08px;
+height: 306.43px;
+background: url("% static 'user_management/css/display_image1.png' %");
+/* Carrot/600 */
+border: 1px solid #FA6F40;
+border-radius: 22.4764px;
+
+}   
+
+
+
+
+.carousel {
+
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.carousel::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.image-container {
+    position: relative;
+    width:430px;
+    margin-right: 10px; /* Adjust spacing between images */
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%; /* Width from your provided CSS */
+    height: 306.43px; /* Height from your provided CSS */
+    background: url("{% static 'user_management/css/display_image1.png' %}") center center no-repeat; /* Background image from your provided CSS */
+    background-size: cover; /* Adjusts the background size to cover the entire container */
+    border: 1px solid #FA6F40; /* Border color from your provided CSS */
+    border-radius: 22.4764px; /* Border radius from your provided CSS */
+    z-index: 2; /* Ensure the overlay image is positioned above other content */
+}
+
+
+  .pagination {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #333;
+  }
+
+
+.card-container {
+    display: flex;
+    justify-content: space-between; /* Distributes the cards evenly along the main axis */
+    width: 1113px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    
+    grid-template-columns: repeat(3, 1fr); /* Creates three equal columns */
+    grid-gap: 20px; /* Adjust the gap between cards as needed */
+}
+
+.card {
+
+    width: 353px;
+    height: 350px;
+    border-radius:19px;
+    background-color: #FEFDFF;
+    filter: drop-shadow(0px 18px 40px rgba(0, 0, 0, 0.05));
+    align-content: :space-evenly;
+}
+
+.section4{
+    padding-bottom: 400px;;
+}
+.section4 .title{
+    /* All-inclusive SEO so */
+
+
+    height: 36px;
+    left: 301px;
+    top: 1093px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 36px;
+    /* identical to box height, or 100% */
+    text-align: center;
+
+    background: linear-gradient(180deg, #7C5CBD 0%, #FA6F40 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+}
+.section4 p{
+    /* If the path is beaut */
+
+
+    height: 38px;
+    left: 107px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.116667px;
+
+    /* Christalle/500 */
+    color: #2C1E49;
+
+
+}
+
+.section5 .title{
+    /* All-inclusive SEO so */
+
+
+    height: 36px;
+    left: 301px;
+    top: 1093px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 36px;
+    /* identical to box height, or 100% */
+    text-align: center;
+
+    background: linear-gradient(180deg, #7C5CBD 0%, #FA6F40 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+}
+.section5 p{
+    /* If the path is beaut */
+
+
+    height: 38px;
+    left: 107px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.116667px;
+
+    /* Christalle/500 */
+    color: #2C1E49;
+
+
+}
+
+.section4 .card-container .card .level1 p{
+    /* Graphical Representa */
+
+font-family: 'Nunito';
+font-style:normal;
+font-weight: 900;
+
+font-size: 18px;
+
+/* or 150% */
+
+/* Christalle/300 */
+color: #160F24;
+
+
+}
+
+.desc{
+    text-align: left;
+    width: 273px;
+    margin: 50px ;
+}
+
+.level1 {
+    margin: 50px;
+    display: flex;
+    align-items: center; /* Vertically align items */
+}
+
+.level1 img {
+width: 70px; /* Adjust image size as needed */
+height:70px;
+margin-right: 10px; /* Add space between image and paragraph */
+}
+
+.level1 p {
+margin: 0; /* Remove default margin */
+}
