@@ -14,8 +14,7 @@
     <div class="navbar">
         <div class="left">
             <ul>
-                <li>
-                    <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo"></li>
+                <li><img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo"></li>
                     <li><p>STYLY</p></li>
                 
             </ul>
@@ -28,7 +27,7 @@
         </div>
     </div>
 
-    </div>
+
     <!-- Section 1 content -->
     <div class="container">
         <div class="section1">
@@ -42,78 +41,114 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Section 2 content -->
-<div class="section2">
-    <p class="title">Unlock the Potential</p>
-    <p>Experience limitless creativity and efficiency with our intuitive</p>
-    <div class="gallery">
-        <div class="carousel" id="imageCarousel">
-            <div class="image-container" style="position: relative;">
-                <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 1">
-                <img class="overlay-image" src="{% static 'user_management/css/display_image1_small.png' %}" alt="Overlay Image 1">
-            </div>
-            <div class="image-container" style="position: relative;">
-                <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 2">
-                <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image2.png' %}" alt="Overlay Image 2">
-            </div>
-            <div class="image-container" style="position: relative;">
-                <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 3">
-                <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image3.png' %}" alt="Overlay Image 3">
-            </div>
-            <!-- Add more images as needed -->
-        </div>
-        
-
-        
-        <div class="pagination" id="paginationDots"></div>
-       
-    </div>
-</div>
-
-    
-    
-        <div class="container">
-            <div class="section3">
-            
-                <div class="title-block">
-                    <p>Design Beyond Limits<br>
-                    <span style="font-size: 20px;">Where Humans and AI Collaborate</span></p>
+  <!-- Section 2 content -->
+        <div class="section2">
+            <p class="title">Unlock the Potential</p>
+            <p>Experience limitless creativity and efficiency with our intuitive</p>
+            <div class="gallery">
+                <div class="carousel" id="imageCarousel">
+                    <div class="image-container" style="position: relative;">
+                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 1">
+                        <img class="overlay-image" src="{% static 'user_management/css/display_image1_small.png' %}" alt="Overlay Image 1">
+                    </div>
+                    <div class="image-container" style="position: relative;">
+                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 2">
+                        <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image2.png' %}" alt="Overlay Image 2">
+                    </div>
+                    <div class="image-container" style="position: relative;">
+                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 3">
+                        <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image3.png' %}" alt="Overlay Image 3">
+                    </div>
+                    <!-- Add more images as needed -->
                 </div>
                 
+
+                
+                <div class="pagination" id="paginationDots"></div>
+            
+            </div>
+        </div>
+
+        <div class="section3">
+        
+            <div class="title-block">
+                <p>Design Beyond Limits<br>
+                <span style="font-size: 20px;">Where Humans and AI Collaborate</span></p>
             </div>
             
         </div>
+        
+    
         <div class="section4">
             <p class="title">How to Use in 3 Easy Steps</p>
             <p>Experience limitless creativity and efficiency with our intuitive</p>
             <div class="card-container">
                 <div class="card">
-                    <div class="level1">
                         <img src="{% static 'user_management/css/uploadIcon.png' %}" alt="upload icon">
-                        <p>Step 1<br>
+                        <p>Step 1
                         Upload</p>
-                    </div>
-                    <div class="desc">
-                      <p></p>   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                    </div>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            <a href="#">Learn more</a>
                     
                 </div>
+
+
+
                 <div class="card">Card 2</div>
                 <div class="card">Card 3</div>
-              </div>
+            </div>
         </div>
         <div class="section5">
             <p class="title">Try on this Room</p>
             <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            <p class="title">Select Your Design</p>
+            <div class="designImage">
+                <img src="{% static 'user_management/css/ImageDisplay.png' %}">
+                <img src=""#>
+            </div>
+        </div>
+        <div class="section6">
+            <p class="title">14228+ PRO</p>
+            <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            <div>
+                <div class="button">
+                    <a href="{% url 'login' %}">Try Free</a><!-- Add registration link here -->
+                </div>
+            </div>
+        </div>
+        <div class="section7">
+            <p class="title">Testimonials</p>
+            <div class="card-container">
+                <div class="card">
+                    <img src="{% static 'user_management/css/uploadIcon.png' %}" alt="upload icon">
+                    <p>Step 1
+                    Upload</p>
+                    <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                        <a href="#">Learn more</a>
+                    
+                </div>
+                <div class="card">Card 2</div>
+                <div class="card">Card 3</div>
+            </div>
             
         </div>
+        <div class="footer1"> 
+            <div class="logo">
+                <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo"></li>
+                <p>STYLY</p>
+
+            </div>
+            
+                <p>Copyright 2024 Styly</p>
+        </div>
+    </div>   
+
     </div>
+
+
     
+</div>
 
-
-
-<!-- Smooth scroll JavaScript -->
 <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -195,7 +230,6 @@ carousel.addEventListener('scroll', () => {
 
 
 </script>
-
 
 </body>
 </html>

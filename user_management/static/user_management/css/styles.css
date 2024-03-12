@@ -1,8 +1,9 @@
 body{
     font-family: 'Nunito', sans-serif; /* Use Nunito font */
     margin:0;
-    background-image:url("BG-services.png");
+    background-image: linear-gradient(118.68deg, rgba(250, 111, 64, 0.1) -23.45%, rgba(211, 201, 233, 0.2) 25.94%, rgba(248, 248, 249, 0.4) 75.33%);
 
+    align-content: space-around;
 
 }
 .container {
@@ -410,7 +411,7 @@ border-radius: 22.4764px;
 
 
 .card-container {
-    display: flex;
+    flex-direction: row;
     justify-content: space-between; /* Distributes the cards evenly along the main axis */
     width: 1113px; /* Adjust width as needed */
     margin: 0 auto; /* Center the container horizontally */
@@ -421,32 +422,27 @@ border-radius: 22.4764px;
 
 .card {
 
-    width: 353px;
-    height: 350px;
-    border-radius:19px;
-    background-color: #FEFDFF;
-    filter: drop-shadow(0px 18px 40px rgba(0, 0, 0, 0.05));
-    align-content: :space-evenly;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  align-content: space-evenly;
+  background-color: #f1f1f1;
+  margin-bottom: 20px;
 }
 
 .section4{
     padding-bottom: 400px;;
 }
-.section4 .title{
+.section4 .title, .section7 .title{
     /* All-inclusive SEO so */
 
 
-    height: 36px;
-    left: 301px;
-    top: 1093px;
 
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 600;
     font-size: 36px;
     line-height: 36px;
-    /* identical to box height, or 100% */
-    text-align: center;
 
     background: linear-gradient(180deg, #7C5CBD 0%, #FA6F40 100%);
     -webkit-background-clip: text;
@@ -459,8 +455,6 @@ border-radius: 22.4764px;
     /* If the path is beaut */
 
 
-    height: 38px;
-    left: 107px;
 
     font-family: 'Nunito';
     font-style: normal;
@@ -475,8 +469,25 @@ border-radius: 22.4764px;
 
 
 }
+.section4 .card-container .card .level1 p{
+    /* Graphical Representa */
 
-.section5 .title{
+    font-family: 'Nunito';
+    font-style:normal;
+    font-weight: 900;
+
+    font-size: 18px;
+
+    /* or 150% */
+
+    /* Christalle/300 */
+    color: #160F24;
+
+
+}
+
+
+.section5 .title,.section7 .title{
     /* All-inclusive SEO so */
 
 
@@ -499,6 +510,7 @@ border-radius: 22.4764px;
     text-fill-color: transparent;
 
 }
+
 .section5 p{
     /* If the path is beaut */
 
@@ -520,41 +532,31 @@ border-radius: 22.4764px;
 
 }
 
-.section4 .card-container .card .level1 p{
-    /* Graphical Representa */
-
-font-family: 'Nunito';
-font-style:normal;
-font-weight: 900;
-
-font-size: 18px;
-
-/* or 150% */
-
-/* Christalle/300 */
-color: #160F24;
 
 
+.section7{
+    margin-bottom: 400px;
 }
 
-.desc{
-    text-align: left;
-    width: 273px;
-    margin: 50px ;
-}
-
-.level1 {
-    margin: 50px;
+/* CSS */
+.footer1 {
     display: flex;
-    align-items: center; /* Vertically align items */
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
 }
 
-.level1 img {
-width: 70px; /* Adjust image size as needed */
-height:70px;
-margin-right: 10px; /* Add space between image and paragraph */
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-.level1 p {
-margin: 0; /* Remove default margin */
+.logo img {
+    width: 50px; /* Adjust according to your logo size */
+    margin-right: 10px; /* Adjust spacing between logo and text */
+}
+
+.logo p {
+    margin: 0; /* Remove default margin */
 }

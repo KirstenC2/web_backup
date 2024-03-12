@@ -8,12 +8,16 @@
     {% load static %}
 
 
-    <link rel="stylesheet" href="{% static 'user_management/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'user_management/css/profile.css' %}">
     <!-- Add any additional styles or scripts here -->
 </head>
 <body>
-    <div>
-        <nav class="navbar">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo">
+            <p>STYLY</p>
+        </div>
+        <div class="nav-links">
             <a href="/">Room AI</a>
             <a href="#" id="home-link" class="{% if request.path == '/accounts/profile/' %}active{% endif %}">Images Bank</a>
             <a href="#" id="ai-designer-link" class="{% if 'ai_designer' in request.path %}active{% endif %}">AI Designer</a>
@@ -22,9 +26,13 @@
                 {% csrf_token %}
                 <button type="submit">Logout</button>
             </form>
-        </nav>
+        </div>
         
-    </div>
+    </nav>
+
+
+
+
     <div id="page-content">
         {% block content %}
         <!-- Content from child templates will be placed here -->

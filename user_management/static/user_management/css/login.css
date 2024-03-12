@@ -1,0 +1,131 @@
+/* Apply gradient background to body */
+/* Apply gradient background to body */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Set minimum height to occupy full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    font-family: 'Nunito', sans-serif; /* Use Nunito font */
+    margin:0;
+    background-image: linear-gradient(118.68deg, rgba(250, 111, 64, 0.1) -23.45%, rgba(211, 201, 233, 0.2) 25.94%, rgba(248, 248, 249, 0.4) 75.33%);
+
+    align-content: space-around;
+
+}
+
+.navbar {
+    display: flex;
+    align-items: baseline; 
+    padding: 10px 20px;
+    border: 1px solid #D3C9E9;
+    overflow: hidden;
+    color: #943535;
+    max-height: 114px; /* Set maximum height */
+}
+
+.navbar .left {
+    display: flex; /* Add flex display to the left div */
+    align-items: center; /* Align items vertically */
+    
+}
+
+.navbar img {
+    max-height: 100%; /* Ensure the image doesn't exceed the navbar's height */
+}
+
+.navbar p {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #583B91;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    margin-left: 10px; /* Add margin to separate the text from the image */
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center; /* Center items horizontally */
+    text-align: center;
+    width: 731px;
+    height: 392px;
+    margin: 20px auto; /* Center horizontally and add some spacing between navbar and container */
+}
+/* Title paragraph */
+.container .title p {
+    width: 477px;
+    height: 147px;
+    margin: auto;
+    padding-bottom: 50px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    background: linear-gradient(180deg, #583B91 0%, #FA6F40 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Other paragraphs */
+.container p {
+    width: 731px;
+    height: 50px;
+    margin: auto;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #2C1E49;
+}
+
+
+
+footer {
+    width: 95%; /* Set the width to 95% */
+    margin: 0 auto; /* Center the footer */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Push the footer to the bottom */
+    padding: 1px;
+    width:95%;
+    
+
+}
+footer a{
+    color:#0266D6;
+    font-weight: 100;
+}
+
+.left {
+    display: flex;
+    
+    align-items: center;
+}
+
+.left p{
+    opacity: 35%;
+    margin-right: 20px; /* Add margin between elements */
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.right a {
+    margin-left: 20px; /* Adjust spacing between links */
+}

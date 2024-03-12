@@ -1,0 +1,74 @@
+body {
+    font-family: 'Nunito', sans-serif; /* Use Nunito font */
+    margin: 0;
+    background-image: linear-gradient(118.68deg, rgba(250, 111, 64, 0.1) -23.45%, rgba(211, 201, 233, 0.2) 25.94%, rgba(248, 248, 249, 0.4) 75.33%);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Take up at least the full viewport height */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Align items to the right */
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid #D3C9E9;
+    overflow: hidden;
+    color: #943535;
+    max-height: 114px; /* Set maximum height */
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    max-height: 100%;
+    margin-right: 10px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+.navbar .nav-links a,
+.navbar form button {
+    margin-left: 20px; /* Adjust if needed */
+    text-decoration: none; /* Remove default underline */
+    color: #583B91; /* Set text color */
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+    text-align: center;
+
+    /* Christalle/600 */
+    color: #37255B;
+    position: relative; /* Set position to relative for pseudo-element */
+    background: none; /* Remove default background */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Set cursor to pointer */
+
+}
+
+.navbar .nav-links a::after,
+.navbar form button::after {
+    content: ''; /* Add pseudo-element */
+    position: absolute; /* Set position to absolute */
+    left: 0; /* Align the line with the link/button */
+    bottom: -9px; /* Position the line lower from the link/button */
+    width: 100%; /* Full width */
+    height: 2px; /* Line thickness */
+
+    background-color: #583B91; /* Line color */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    visibility: hidden; /* Initially hide the line */
+    transition: visibility 0.s, transform 0.6s ease; /* Smooth transition */
+}
+
+.navbar .nav-links a:hover::after,
+.navbar form button:hover::after {
+    visibility: visible; /* Show the line on hover */
+}
