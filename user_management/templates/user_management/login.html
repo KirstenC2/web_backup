@@ -1,4 +1,3 @@
-{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,27 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     {% load static %}
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="{% static 'user_management/css/login.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
-
-
-</head>
+    <script>
+        function onSignIn(googleUser) {
+            // Handle sign-in success
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do something with the user's ID
+            console.log('Name: ' + profile.getName()); // Do something with the user's name
+            // Add more logic as needed
+        }
+        
+        function onFailure(error) {
+            // Handle sign-in failure
+            console.error('Error: ' + error);
+        }
+        </script>
+        
+<script>
+    function signInWithGoogle() {
+        gapi.auth2.getAuthInstance().signIn().then(function(googleUser) {
+            var id_token = googleUser.getAuthResponse().id_token;
+            window.location.href = "{% url 'google_login' %}?id_token=" + id_token;
+        });
+    }
+</script>
 <body>
     <div class="navbar">
-
         <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo">
         <p>STYLY</p>
-
     </div>
     <div class="container">
         <div class="title">
             <p>Our Design Journey, Guided by Experts, Enhanced by AI in seconds</p>
         </div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. .</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <h2>Login</h2>
-        <form method="post" >
+        <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
-            
             <label for="id_username">Username:</label>
             {{ form.username }}
             <label for="id_password">Password:</label>
@@ -37,7 +53,7 @@
             <p class="error-message">Invalid username or password.</p>
         {% endif %}
         <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
-        
+        <button onclick="signInWithGoogle()">Sign in with Google</button>
         <p><a href="/">Back to Room AI</a></p>
     </div>
     <footer>
@@ -50,6 +66,6 @@
             <a href="#">Privacy Policy</a>
         </div>
     </footer>
-    
 </body>
+
 </html>

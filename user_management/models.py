@@ -56,6 +56,9 @@ class CustomUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
     date_of_birth = models.DateField(null=True, blank=True)
+    profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
+    background_image = models.ImageField(upload_to='background_images/', blank=True, null=True)
+
 
     USERNAME_FIELD = 'username'
     EMAIL_FIELD = 'email'

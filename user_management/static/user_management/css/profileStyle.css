@@ -1,0 +1,35 @@
+/* styles.css */
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #942d2d;
+  }
+  
+.profile-picture {
+    background-color: #942d2d;/* Replace 'path_to_your_image.jpg' with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; /* To make it a circle */
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    margin: 0 auto;
+}
+  
+.history-image{
+    width:95%;
+    margin:auto;
+}
+.clearfix{
+    box-sizing: border-box;
+
+    width:95%;
+    margin:auto;
+
+}
+.img-container {
+    width:23%;
+    padding: 5px;
+    float: left;
+  }
+  
