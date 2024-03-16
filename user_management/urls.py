@@ -18,9 +18,6 @@ urlpatterns = [
     path('auth/google/', google_login, name='google_login'),  # Google OAuth login view
     #path('accounts/google/login/callback/', google_oauth_callback, name='google_oauth_callback'),  # Google OAuth callback view
     path('priceplan/', views.priceplan, name='priceplan'),
-    path('process_payment/', views.process_payment, name='process_payment'),
-    path('create_subscription/', views.create_subscription, name='create_subscription'),
-    path('handle_webhook/', views.handle_webhook, name='handle_webhook'),
-    path('generate_report/', views.generate_report, name='generate_report'),
+    
     
 ]

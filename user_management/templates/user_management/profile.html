@@ -11,7 +11,18 @@
     <!-- Add any additional styles or scripts here -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script>
+        // Function to handle redirect after payment completion
+        function handlePaymentSuccess() {
+            // Redirect the user to the profile page after 5 seconds
+            setTimeout(function() {
+                window.location.href = "{% url 'user_homepage' %}";
+            }, 5000); // 5000 milliseconds = 5 seconds
+        }
+    
+        // Handle redirect after successful payment completion
+        handlePaymentSuccess();
+    </script>
 </head>
 
 <body>
@@ -23,7 +34,7 @@
         <div class="nav-links">
             <a href="#">Generate</a>
             <a href="{% url 'priceplan' %}">Pricing</a>
-            <a href="#" id="profile-link">Profile</a>
+            <a href="{% url 'user_homepage' %}">Profile</a>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit">Logout</button>

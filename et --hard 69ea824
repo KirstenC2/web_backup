@@ -1,0 +1,43 @@
+[33m69ea824[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: commit: Commit message
+[33md840f73[m HEAD@{1}: reset: moving to HEAD
+[33md840f73[m HEAD@{2}: commit: Removed large file user_management/logfile.log
+[33me371d56[m HEAD@{3}: Branch: renamed refs/heads/main to refs/heads/main
+[33me371d56[m HEAD@{5}: reset: moving to HEAD
+[33me371d56[m HEAD@{6}: Branch: renamed refs/heads/main to refs/heads/main
+[33me371d56[m HEAD@{8}: commit: update
+[33mae7cae6[m HEAD@{9}: reset: moving to HEAD~1
+[33m3ac3b93[m HEAD@{10}: checkout: moving from vers to main
+[33m73f9d9b[m[33m ([m[1;31morigin/vers[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mgithub/vers[m[33m, [m[1;32mvers[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{11}: checkout: moving from main to vers
+[33m3ac3b93[m HEAD@{12}: checkout: moving from master to main
+[33m73f9d9b[m[33m ([m[1;31morigin/vers[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mgithub/vers[m[33m, [m[1;32mvers[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{13}: checkout: moving from main to master
+[33m3ac3b93[m HEAD@{14}: rebase (finish): returning to refs/heads/main
+[33m3ac3b93[m HEAD@{15}: rebase (pick): remove file
+[33mae7cae6[m HEAD@{16}: rebase (pick): Update Profile page
+[33mb8116f8[m HEAD@{17}: rebase (pick): remove logfile
+[33m59b4b19[m HEAD@{18}: rebase (pick): Pricing version
+[33md1d52c2[m HEAD@{19}: rebase (pick): Pricing Page base version
+[33me6d6ad5[m HEAD@{20}: rebase (pick): latest update
+[33me503090[m HEAD@{21}: rebase (pick): Profile Page base version
+[33ma4e6e5a[m HEAD@{22}: rebase (pick): Create README.md
+[33mc49ebc1[m[33m ([m[1;31mgithub/main[m[33m)[m HEAD@{23}: rebase (start): checkout vers
+[33m4506ff8[m HEAD@{24}: checkout: moving from vers to main
+[33m73f9d9b[m[33m ([m[1;31morigin/vers[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mgithub/vers[m[33m, [m[1;32mvers[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{25}: checkout: moving from main to vers
+[33m4506ff8[m HEAD@{26}: checkout: moving from main to main
+[33m4506ff8[m HEAD@{27}: commit: remove file
+[33m2e53115[m HEAD@{28}: commit: Update Profile page
+[33mba24bcd[m HEAD@{29}: commit: remove logfile
+[33mf71ba42[m HEAD@{30}: commit: Pricing version
+[33m5c1bc44[m HEAD@{31}: commit: Pricing Page base version
+[33m185b099[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{32}: commit: latest update
+[33m2f5e694[m HEAD@{33}: commit: Profile Page base version
+[33m32db346[m HEAD@{34}: pull origin main: Merge made by the 'ort' strategy.
+[33mc49ebc1[m[33m ([m[1;31mgithub/main[m[33m)[m HEAD@{35}: commit: Update Profile page design
+[33m2497495[m HEAD@{36}: commit: Landing Page base ver 1
+[33mcdbe343[m HEAD@{37}: commit: Landing page updated version
+[33m564def8[m HEAD@{38}: commit: Landing page updated version
+[33mac66ab2[m HEAD@{39}: commit: Styly CSS version 1
+[33mf346c6f[m HEAD@{40}: commit: base version 2
+[33mc2cb4d9[m HEAD@{41}: commit: update for base versiond
+[33m73f9d9b[m[33m ([m[1;31morigin/vers[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mgithub/vers[m[33m, [m[1;32mvers[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{42}: Branch: renamed refs/heads/main to refs/heads/main
+[33m73f9d9b[m[33m ([m[1;31morigin/vers[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mgithub/vers[m[33m, [m[1;32mvers[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{44}: commit: with registration success
+[33me10b99a[m HEAD@{45}: commit (initial): Initial commit

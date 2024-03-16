@@ -27,6 +27,7 @@ from django.contrib.auth import authenticate, login
 from google.auth.transport import requests
 from google.oauth2 import id_token
 from django.conf import settings
+from django.contrib import messages
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -206,8 +207,6 @@ def get_logged_in_user(request):
     else:
         return JsonResponse({'error': 'User is not authenticated'}, status=401)
 
-
-
 def set_cookie_view(request):
     response = HttpResponse("Setting a cookie!")
     response.set_cookie("my_cookie", "my_value", max_age=3600)  # Set a cookie named "my_cookie" with a value and a maximum age of 1 hour (in seconds)
@@ -306,122 +305,3 @@ def upload_image(request):
 
 
 
-#Stripe
-
-
-@csrf_exempt
-@require_POST
-def stripe_webhook(request):
-    # Parse the JSON payload from the webhook
-    payload = json.loads(request.body)
-
-    # Extract relevant payment information from the payload
-    payment_id = payload['id']
-    amount = payload['data']['object']['amount']
-    currency = payload['data']['object']['currency']
-    payment_method = payload['data']['object']['payment_method_types'][0]
-    customer_id = payload['data']['object']['customer']
-    timestamp = datetime.datetime.fromtimestamp(payload['created'])
-
-    # Retrieve the user based on the customer ID from the payload
-    # Note: You need to implement the logic to map Stripe customer ID to your Django User model
-    user = User.objects.get(username=customer_id)  # Example: Assuming Stripe customer ID is the same as the username
-
-    # Create a new Payment instance and save it to the database
-    payment = Payment.objects.create(
-        user=user,
-        payment_id=payment_id,
-        amount=amount,
-        currency=currency,
-        payment_method=payment_method,
-        customer_id=customer_id,
-        timestamp=timestamp
-    )
-
-    # Return a 200 OK response to acknowledge receipt of the webhook event
-    return HttpResponse(status=200)
-
-
-
-
-def process_payment(request):
-    if request.method == 'POST':
-        token = request.POST['stripeToken']
-        amount = 1000  # Amount in cents
-        try:
-            charge = stripe.Charge.create(
-                amount=amount,
-                currency='usd',
-                source=token,
-                description='Example charge'
-            )
-            # Store payment details in database
-            payment = Payment.objects.create(
-                amount=amount,
-                stripe_charge_id=charge.id,
-                # Add other payment details as needed
-            )
-            return redirect('payment_success')
-        except stripe.error.CardError as e:
-            # Handle card error
-            return render(request, 'payment_error.html', {'error': e})
-        except stripe.error.StripeError as e:
-            # Handle other Stripe errors
-            return render(request, 'payment_error.html', {'error': e})
-
-def create_subscription(request):
-    if request.method == 'POST':
-        customer = stripe.Customer.create(
-            email=request.user.email,
-            source=request.POST['stripeToken']
-        )
-        subscription = stripe.Subscription.create(
-            customer=customer.id,
-            items=[
-                {
-                    'price': 'price_123',  # Stripe price ID for subscription plan
-                }
-            ]
-        )
-        # Store subscription details in database
-        subscription = Subscription.objects.create(
-            stripe_subscription_id=subscription.id,
-            customer=request.user,
-            # Add other subscription details as needed
-        )
-        return redirect('subscription_success')
-
-def handle_webhook(request):
-    payload = request.body
-    sig_header = request.headers['Stripe-Signature']
-    try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
-        )
-    except ValueError as e:
-        # Invalid payload
-        return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
-        return HttpResponse(status=400)
-
-    # Handle the event
-    if event['type'] == 'payment_intent.succeeded':
-        payment_intent = event['data']['object']
-        # Update payment status in database
-        payment = Payment.objects.get(stripe_charge_id=payment_intent.id)
-        payment.status = 'succeeded'
-        payment.save()
-
-    # Handle other event types as needed
-
-    return HttpResponse(status=200)
-
-def generate_report(request):
-    # Retrieve payment and subscription data from Stripe
-    payments = stripe.PaymentIntent.list(limit=10)
-    subscriptions = stripe.Subscription.list(limit=10)
-
-    # Process and analyze data as needed
-
-    return render(request, 'report.html', {'payments': payments, 'subscriptions': subscriptions})
