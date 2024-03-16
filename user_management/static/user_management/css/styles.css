@@ -35,6 +35,7 @@ body{
     border: 1px solid #D3C9E9;
     overflow: hidden;
     color: #fff;
+
     max-height: 114px; /* Set maximum height */
     position: relative; /* Required for absolute positioning */
 }
@@ -78,24 +79,30 @@ body{
 .navbar a {
     /* SEO-Xpert */
 
-    width: 49px;
-    height: 27px;
-    left: 108px;
-    top: 71px;
-
     font-family: 'Avenir LT Std';
     font-style: normal;
     font-weight: 400;
+
     font-size: 18px;
     line-height: 27px;
     /* identical to box height, or 150% */
-
+    text-align: center;
     /* Christalle/700 */
     color: #583B91;
+    
 
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
+
+
+
+
+
+
+
+
+
 
 .navbar img{
     /* 16-STYLY_logo 2 */
@@ -113,14 +120,17 @@ body{
     background-color: #FA6F40;
     border-radius: 1.25rem;
     width: 143px;
+    
     height:51px;
-    padding: 10px 20px;
+
 }
 
 .orange-button a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
+    align-items: center;
 }
 .section1 .left .tryfree-button {
     background-color: #FA6F40;
@@ -410,25 +420,54 @@ border-radius: 22.4764px;
   }
 
 
-.card-container {
-    flex-direction: row;
-    justify-content: space-between; /* Distributes the cards evenly along the main axis */
+  .card-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Creates three equal columns */
+    grid-gap: 5px; /* Adjust the gap between cards as needed */
     width: 1113px; /* Adjust width as needed */
     margin: 0 auto; /* Center the container horizontally */
-    
-    grid-template-columns: repeat(3, 1fr); /* Creates three equal columns */
-    grid-gap: 20px; /* Adjust the gap between cards as needed */
+
 }
+
 
 .card {
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
-  text-align: center;
+  text-align: left;
   align-content: space-evenly;
   background-color: #f1f1f1;
   margin-bottom: 20px;
+  border-radius: 19px;
+  width:353px;
+  height:350px;
 }
+
+.section4 .card-container .card p:nth-child(3){
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom:30px;
+}
+
+.section4 .card-container .card a:nth-child(4){
+    text-align: left;
+    /* Read More */
+
+
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 18px;
+    /* identical to box height */
+    letter-spacing: 0.541667px;
+    text-transform: uppercase;
+
+    /* Christalle/500 */
+    color: #2C1E49;
+
+
+
+}
+
 
 .section4{
     padding-bottom: 400px;;

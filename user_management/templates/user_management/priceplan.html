@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Room AI{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_management/css/profile.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+    <!-- Add any additional styles or scripts here -->
+
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo">
+            <p>STYLY</p>
+        </div>
+        <div class="nav-links">
+            <a href="#">Generate</a>
+            <a href="{% url 'priceplan' %}">Pricing</a>
+            <a href="{% url 'user_homepage' %}">Profile</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+    <div class="box">
+        <h2 class="title">Get Best Price<br>
+            for Our Product</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. .</p>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="pricing-card">
+                    <div class="card-body">
+                        <h5 class="card-title"><span class="price">$15</span>/month</h5>
+                        <p class="plan-name">Basic</p>
+                        <p>All the basics for businesses that are just getting started.</p>
+                        <div class="icon">
+                            <!-- Use your icon here, e.g., font awesome, SVG, etc. -->
+                            <i class="fas fa-star"></i> <!-- Example using Font Awesome -->
+                          </div>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <a href="https://buy.stripe.com/test_6oEeUZ6Fi82b31C7ss" class="stripe-payment-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                
+                <div class="pricing-card">
+                    
+                    <div class="card-body">
+                        <div class="recommended-banner">
+                            <h4>Recommended</h4>
+                        </div>
+                        <h5 class="card-title"><span class="price">$29</span>/month</h5>
+                        <p class="plan-name">Intermediate</p>
+                        <p>All the basics for businesses that are just getting started.</p>
+                        <div class="icon">
+                            <!-- Use your icon here, e.g., font awesome, SVG, etc. -->
+                            <i class="fas fa-star"></i> <!-- Example using Font Awesome -->
+                          </div>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <a href="https://buy.stripe.com/test_dR6dQV8Nq0zJ31C5kl" class="stripe-payment-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pricing-card">
+                    <div class="card-body">
+                        <h5 class="card-title"><span class="price">$79</span>/month</h5>
+                        <p class="plan-name">Professional</p>
+                        <p>All the basics for businesses that are just getting started.</p>
+                        <div class="icon">
+                            <!-- Use your icon here, e.g., font awesome, SVG, etc. -->
+                            <i class="fas fa-star"></i> <!-- Example using Font Awesome -->
+                          </div>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <p>sdhfbgkvjsktgbdsfbsfgnb</p>
+                          <a href="https://buy.stripe.com/test_7sI4gl2p2ben59K9AC" class="stripe-payment-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section2">
+        <p class="title">What's included</p>
+        <div class="feature-row">
+            <div class="feature-card">
+                <p>jsdgf</p>
+            </div>
+            <div class="feature-card">
+                <p>jsdgf</p>
+            </div>
+            <div class="feature-card">
+                <p>jsdgf</p>
+            </div>
+        </div>
+        <div class="feature-row">
+            <div class="feature-card">
+                <img src="{% static 'ImageDisplay.png'%}">
+                <p>jsdgf</p>
+            </div>
+            <div class="feature-card">
+                <p>jsdgf</p>
+            </div>
+            <div class="feature-card">
+                <p>jsdgf</p>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

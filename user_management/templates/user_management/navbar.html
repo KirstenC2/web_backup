@@ -1,0 +1,21 @@
+{% extends 'user_management/profile.html' %}
+
+
+
+{% block content %}
+<div class="navbar">
+    <div class="logo">
+        <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo">
+        <p>STYLY</p>
+    </div>
+    <div class="nav-links">
+        <a href="#" id="ai-designer-link" class="{% if 'ai_designer' in request.path %}active{% endif %}">Generate</a>
+        <a href="#" id="priceplan-link" class="{% if 'price_plan' in request.path %}active{% endif %}">Pricing</a>
+        <a href="#" id="profile-link" class="{% if 'profile' in request.path %}active{% endif %}">Profile</a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

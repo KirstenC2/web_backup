@@ -1,25 +1,179 @@
 body {
-    font-family: 'Nunito', sans-serif; /* Use Nunito font */
+    font-family: 'Nunito', sans-serif;
+    /* Use Nunito font */
     margin: 0;
     background-image: linear-gradient(118.68deg, rgba(250, 111, 64, 0.1) -23.45%, rgba(211, 201, 233, 0.2) 25.94%, rgba(248, 248, 249, 0.4) 75.33%);
+    display: block;
+    margin-bottom: 250px;
+
+    min-height: 100vh;
+    /* Take up at least the full viewport height */
+}
+
+/* styles.css */
+.content {
+    width: 88%;
+    margin: auto;
+}
+
+p {
+
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+
+    /* Zh n Zh  B i Pearl/400 */
+    color: #959595;
+
+}
+
+
+.container {
+
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: #2C1E49;
+
+}
+
+h2 {
+    font-size: 25.5px;
+
+}
+
+.container .profile-content {
+    padding-top: 150px;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    min-height: 100vh; /* Take up at least the full viewport height */
+    width: 92%;
+    margin: auto;
+    align-items: baseline;
+    margin-bottom: -80px;
+
+}
+
+.profile-details {
+
+
+    padding-left: 30px;
+    padding-top: 80px;
+    padding-bottom: 25px;
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.profile-picture {
+    background-color: #942d2d;
+    /* Replace 'path_to_your_image.jpg' with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 50%;
+    /* To make it a circle */
+    width: 140px;
+    /* Adjust as needed */
+    height: 140px;
+    /* Adjust as needed */
+    float: left;
+
+
+}
+
+.section2 {
+    background-color: #fff;
+    border-radius: 10px;
+    padding-top: 300px;
+    padding-bottom: 100px;
+    border-top-left-radius: 20%;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1); 
+    margin: auto;
+}
+
+.history-image {
+    width: 95%;
+    margin: auto;
+    margin-top: 80px;
+    padding-top: 40px;
+    height: 600px;
+
+}
+
+
+.history-image p {
+
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 25px;
+    /* Christalle/500 */
+    color: #2C1E49;
+    opacity: 0.5;
+    /* Ömer C. */
+}
+
+.history-image h3 {
+
+
+    font-weight: 700;
+    font-size: 21.4px;
+    line-height: 29px;
+
+    /* Christalle/500 */
+    color: #2C1E49;
+
+
+}
+
+
+
+
+.clearfix {
+    display: flex;
+    /* Use flexbox to control spacing */
+    height: 260px;
+    background-color: #2C1E49;
+    margin: auto;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.img-container {
+    width: 220px;
+    height: 200px;
+    padding: 5px;
+    border-radius: 9px;
+
+    margin-right: 10px;
+    /* Add right margin for spacing */
+    background-color: #D3C9E9;
+}
+
+.img-container:last-child {
+    margin-right: 0;
+    /* Remove right margin for the last child */
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between; /* Align items to the right */
+    justify-content: space-between;
+    /* Align items to the right */
     align-items: center;
     padding: 10px 20px;
     border: 1px solid #D3C9E9;
+
     overflow: hidden;
     color: #943535;
-    max-height: 114px; /* Set maximum height */
+
+    max-height: 114px;
+    /* Set maximum height */
 }
 
 .navbar .logo {
     display: flex;
+    margin-left: 75px;
     align-items: center;
 }
 
@@ -30,13 +184,18 @@ body {
 
 .navbar .nav-links {
     display: flex;
-    align-items: center; /* Align items vertically */
+    align-items: center;
+    /* Align items vertically */
 }
+
 .navbar .nav-links a,
 .navbar form button {
-    margin-left: 20px; /* Adjust if needed */
-    text-decoration: none; /* Remove default underline */
-    color: #583B91; /* Set text color */
+    margin-left: 20px;
+    /* Adjust if needed */
+    text-decoration: none;
+    /* Remove default underline */
+    color: #583B91;
+    /* Set text color */
 
     font-weight: 400;
     font-size: 18px;
@@ -46,29 +205,425 @@ body {
 
     /* Christalle/600 */
     color: #37255B;
-    position: relative; /* Set position to relative for pseudo-element */
-    background: none; /* Remove default background */
-    border: none; /* Remove default border */
-    cursor: pointer; /* Set cursor to pointer */
+    position: relative;
+    /* Set position to relative for pseudo-element */
+    background: none;
+    /* Remove default background */
+    border: none;
+    /* Remove default border */
+    cursor: pointer;
+    /* Set cursor to pointer */
 
 }
 
 .navbar .nav-links a::after,
 .navbar form button::after {
-    content: ''; /* Add pseudo-element */
-    position: absolute; /* Set position to absolute */
-    left: 0; /* Align the line with the link/button */
-    bottom: -9px; /* Position the line lower from the link/button */
-    width: 100%; /* Full width */
-    height: 2px; /* Line thickness */
+    content: '';
+    /* Add pseudo-element */
+    position: absolute;
+    /* Set position to absolute */
+    left: 0;
+    /* Align the line with the link/button */
+    bottom: -9px;
+    /* Position the line lower from the link/button */
+    width: 100%;
+    /* Full width */
+    height: 2px;
+    /* Line thickness */
 
-    background-color: #583B91; /* Line color */
+    background-color: #583B91;
+    /* Line color */
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    visibility: hidden; /* Initially hide the line */
-    transition: visibility 0.s, transform 0.6s ease; /* Smooth transition */
+    visibility: hidden;
+    /* Initially hide the line */
+    transition: visibility 0.s, transform 0.6s ease;
+    /* Smooth transition */
 }
 
 .navbar .nav-links a:hover::after,
 .navbar form button:hover::after {
-    visibility: visible; /* Show the line on hover */
+    visibility: visible;
+    /* Show the line on hover */
+}
+
+
+
+
+
+/* Additional CSS for displaying cards in a row */
+.row {
+    display: flex;
+    justify-content: space-between;
+    /* Adjust as needed */
+    flex-wrap: wrap;
+
+    height: 650px;
+    width: 95%;
+    margin: auto;
+    padding-bottom: 200px;
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.333% - 20px);
+    /* Adjust for margin */
+
+    margin-bottom: 20px;
+    /* Adjust margin between cards */
+}
+
+
+.recommended-banner {
+
+   
+    background-color: #007bff; /* Set the background color of the banner */
+    color: #fff; /* Set the text color */
+    text-align: center; /* Align the text in the center */
+    padding: 10px; /* Add some padding to the banner */
+    border-top-left-radius: 8px; /* Ensure the top-left corner of the banner matches the card */
+    border-top-right-radius: 8px; /* Ensure the top-right corner of the banner matches the card */
+}
+
+.pricing-card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.pricing-card .card-body {
+    padding: 0;
+    margin-left: 20px;
+    width: 250px;
+
+
+}
+
+.title {
+
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 68px;
+    /* or 121% */
+    text-align: center;
+    letter-spacing: 0.2px;
+
+    background: linear-gradient(180deg, #583B91 0%, #FA6F40 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+
+}
+.box{
+    margin-bottom: -300px;
+
+}
+.box p {
+
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+    text-align: center;
+    /* Zh n Zh  B i Pearl/400 */
+    color: #100322;
+
+}
+
+.box .row {
+    width: 90%;
+    padding-top: 50px;
+    margin: auto;
+    
+}
+
+.box .row .col-md-4 .pricing-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add box shadow */
+    padding: 20px;
+    width: 320px;
+    
+    height: 551px;
+}
+
+
+h5 {
+
+
+    font-weight: 300;
+    font-size: 18px;
+
+    line-height: 25px;
+    color: #323232;
+}
+
+.price {
+
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 57px;
+
+    /* Christalle/500 */
+    color: #2C1E49;
+}
+
+.icon {
+    font-size: 48px;
+    color: #007bff;
+    /* Change color as needed */
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #b62626;
+    /* Change color as needed */
+
+}
+
+.pricing-card .card-body p.plan-name {
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    line-height: 57px;
+
+    /* Christalle/500 */
+    color: #2C1E49;
+}
+
+.stripe-payment-button {
+    color: #C6C6C7;
+    padding: 10px 20px;
+    border: solid 1px #C6C6C7;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 80%;
+    height: 50px;
+    margin: auto;
+    text-decoration: none;
+    display: flex;
+
+    align-items: center;
+    margin-top: 20px;
+    /* Add margin top as needed */
+    background-color: transparent;
+    /* Remove background color */
+    transition: background-color 0.3s ease;
+    /* Add transition effect */
+}
+
+.stripe-payment-button:hover {
+    background-color: #C6C6C7;
+    /* Change background color on hover */
+    color: #fff;
+    /* Change text color on hover */
+}
+
+.box .row .col-md-4:nth-child(2) .pricing-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    /* Add box shadow */
+    padding: 20px;
+    width: 320px;
+    /* Increase width as needed */
+    height: 600px;
+    /* Increase height as needed */
+
+}
+
+.box .row .col-md-4:nth-child(2) .stripe-payment-button {
+    color: #fff;
+    background-color: #FA6F40;
+    /* Set the button color to orange */
+    border: none;
+    width: 90%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+
+    align-items: center;
+}
+
+
+.box .row .col-md-4:nth-child(2) .stripe-payment-button:hover {
+    background-color: #ff7f00;
+    /* Change button color on hover */
+
+
+}
+
+.section2 .feature-row{
+    width:85%;
+    margin: auto;
+    padding-top:100px;
+    display: flex;
+    justify-content: space-between;
+    /* Adjust as needed */
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+
+
+}
+.section2 .feature-card {
+    background-color: #eee8e8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 320px;
+    height: 140px;
+    display: flex;
+    align-items: center; /* Center vertically */
+}
+
+.section2 .feature-card img {
+    width: 60px;
+    
+    border-radius: 10px;
+    align-self: flex-start; /* Align image to the top */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    /* Styles for mobile screens */
+    body {
+        margin: 0;
+        /* Adjust margin for mobile screens */
+    }
+
+    .content {
+        width: 100%;
+        margin: auto;
+    }
+
+    .container {
+        margin: 0 auto;
+        /* Center the container horizontally */
+        width: 100%;
+        /* Adjust width for mobile screens */
+    }
+
+    .section2 {
+        width: 95%;
+        margin: auto;
+    }
+
+    .profile-content {
+        padding-top: 100px;
+        /* Adjust padding for mobile screens */
+
+    }
+
+    .profile-picture {
+        width: 100px;
+        /* Adjust size for mobile screens */
+        height: 100px;
+        /* Adjust size for mobile screens */
+        margin: auto;
+        /* Center the profile picture on mobile screens */
+    }
+
+    .profile-details {
+        padding-top: 20px;
+        /* Adjust padding for mobile screens */
+    }
+
+    .history-image {
+        height: 805px;
+
+        margin-top: 60px;
+        /* Adjust margin for mobile screens */
+    }
+
+    .history-image p,
+    .history-image h3 {
+        font-size: 16px;
+        /* Adjust font size for mobile screens */
+    }
+
+    .clearfix {
+        display: grid;
+        grid-template-columns: repeat(2, 0.3fr);
+        /* 2 columns */
+        grid-auto-rows: 120px;
+        /* Row height */
+        grid-gap: 10px;
+        /* Adjust gap between grid items */
+
+    }
+
+
+    .img-container {
+        display: flex;
+        justify-content: center;
+        /* Center content horizontally */
+        align-items: center;
+        /* Center content vertically */
+        width: 100%;
+        /* Take up full width of grid cell */
+        height: 100%;
+        /* Take up full height of grid cell */
+
+    }
+
+    .indent {
+        margin-left: 25px;
+    }
+
+
+
+    .img-container img {
+        max-width: 80px;
+        /* Adjust maximum width of images */
+        max-height: 80px;
+        /* Adjust maximum height of images */
+    }
+
+    .navbar .logo {
+        display: flex;
+
+
+    }
+
+    .navbar .logo img {
+        max-height: 100%;
+        margin-right: 10px;
+    }
+
+    .navbar .nav-links {
+        display: none;
+        /* Hide navigation links on mobile screens */
+    }
 }

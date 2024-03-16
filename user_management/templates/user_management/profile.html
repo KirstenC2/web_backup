@@ -1,53 +1,112 @@
-{% extends 'user_management/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}
-    Profile - Room AI
-{% endblock %}
-{% block content %}
-<div class="container">
-    <div class="profile-content">
-        <div class="profile-picture"></div>
-        <h2>Welcome, {{ user.username }}!</h2>
-        <p>Email: {{ user.email }}</p>
-        <p>First Name: {{ user.first_name }}</p>
-        <p>Last Name: {{ user.last_name }}</p>
-        <p>Joined since: {{ user.date_joined }}</p>
-        <p>Birth day: {{ user.date_of_birth }}</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Room AI{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_management/css/profile.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+    <!-- Add any additional styles or scripts here -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo">
+            <p>STYLY</p>
+        </div>
+        <div class="nav-links">
+            <a href="#">Generate</a>
+            <a href="{% url 'priceplan' %}">Pricing</a>
+            <a href="#" id="profile-link">Profile</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <div class="content">
+        <div class="indent">
+            <h2>Welcome, {{ user.username }}</h2>
+            <p id="current-date"></p>
+        </div>
+
+        <div class="container">
+
+            <div class="profile-content">
+                <div class="profile-picture"></div>
+                <img src="#">
+            </div>
+            <div class="profile-details">
+                <h2>{{ user.username }}</h2>
+                <p>Email: {{ user.email }}</p>
+                <p>First Name: {{ user.first_name }}</p>
+                <p>Last Name: {{ user.last_name }}</p>
+                <p>Joined since: {{ user.date_joined }}</p>
+                <p>Birth day: {{ user.date_of_birth }}</p>
+            </div>
+
+        </div>
+
+
+        <div class="section2">
+            <div class="history-image">
+                <h3>Your Design History</h3>
+                <p>ahjkgrkbskdfbkjxfgbnsdnjfgbjknfgbsadgyibakjsbergkjaskedbgjshbdf</p>
+
+                <div class="clearfix">
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                    <div class="img-container">
+                        <img src="" alt="Italy" style="width:100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-        <div class="history-image">
-            <h3>Your Design History</h3>
-            <p>ahjkgrkbskdfbkjxfgbnsdnjfgbjknfgb</p>
-            <p>syedfbgkbskritbgkdfgb</p>
-            <div class="clearfix">
-                <div class="img-container">
-                <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-                <div class="img-container">
-                    <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-                <div class="img-container">
-                    <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-                <div class="img-container">
-                    <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-            </div>
-            <div class="clearfix">
-                <div class="img-container">
-                <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-                <div class="img-container">
-                    <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-                <div class="img-container">
-                    <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-                <div class="img-container">
-                    <img src="{% static 'user_management/css/ImageDisplay.png' %}" alt="Italy" style="width:100%">
-                </div>
-            </div>
-        </div>
-        </div>
-        
+    <script>
+        var currentDate = new Date();
 
-    {% endblock %}
+        // Format the date as desired (e.g., "March 15, 2024")
+        var formattedDate = currentDate.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Display the formatted date in the <p> tag
+        document.getElementById("current-date").textContent = formattedDate;
+    </script>
+</body>
+
+</html>

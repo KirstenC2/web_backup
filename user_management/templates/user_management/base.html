@@ -1,13 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Room AI{% endblock %}</title>  <!-- Keep only one title block -->
+    <title>{% block title %}Room AI{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'user_management/css/profile.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
     <!-- Add any additional styles or scripts here -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 </head>
 <body>
     <nav class="navbar">
@@ -16,62 +19,25 @@
             <p>STYLY</p>
         </div>
         <div class="nav-links">
-            <a href="/">Room AI</a>
-            <a href="#" id="home-link" class="{% if request.path == '/accounts/profile/' %}active{% endif %}">Images Bank</a>
-            <a href="#" id="ai-designer-link" class="{% if 'ai_designer' in request.path %}active{% endif %}">Generate</a>
-            <a href="#" id="profile-link" class="{% if 'profile' in request.path %}active{% endif %}">Profile</a>
+            <a href="{% url 'priceplan' %}">Generate</a>
+            <a href="#" id="priceplan-link" class="{% if 'price_plan' in request.path %}active{% endif %}">Pricing</a>
+            <a href="#" id="profile-link">Profile</a>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit">Logout</button>
             </form>
         </div>
-        
     </nav>
 
-    <div id="page-content">
-        <!-- Content will be loaded here -->
+    <div id="page-content" class="">
+        {% block content %}
+            <!-- Content will be loaded here -->
+        {% endblock %}
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Function to load profile data
-            function loadProfileData() {
-                $('#page-content').load('user_management/templates/user_management/profile.html');
+    <div id="priceplan-content" class="">
+        <!-- Price plan content will be loaded here -->
+    </div>
 
-            }
-    
-            // Function to load home data
-            function loadHomeData() {
-                $('#page-content').load('/path/to/home.html');
-            }
-    
-            // Function to load AI designer data
-            function loadAIDesignerData() {
-                $('#page-content').load('/path/to/ai_designer.html');
-            }
-    
-            // Click event for profile link
-            $('#profile-link').on('click', function(event) {
-                event.preventDefault(); // Prevent the default behavior of the link
-                loadProfileData();
-            });
-    
-            // Click event for AI designer link
-            $('#ai-designer-link').on('click', function(event) {
-                event.preventDefault(); // Prevent the default behavior of the link
-                loadAIDesignerData();
-            });
-    
-            // Click event for home link
-            $('#home-link').on('click', function(event) {
-                event.preventDefault(); // Prevent the default behavior of the link
-                loadHomeData();
-            });
-    
-            // Initial load
-            loadProfileData(); // Load profile data by default
-        });
-    </script>
 </body>
 </html>

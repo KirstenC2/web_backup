@@ -18,7 +18,7 @@ import random
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ImageForm
-import logging,requests
+
 from .models import Payment
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -28,7 +28,6 @@ from google.auth.transport import requests
 from google.oauth2 import id_token
 from django.conf import settings
 
-logger = logging.getLogger(__name__)
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -102,6 +101,13 @@ def google_oauth_callback(request):
 def user_homepage(request):
     return render(request, 'user_management/profile.html')
 
+def priceplan(request):
+    # Logic to fetch and prepare price plan content
+    return render(request, 'user_management/priceplan.html')
+
+
+
+
 
 def profile(request):
     # Retrieve all images uploaded by the current user
@@ -128,7 +134,6 @@ def get_user_data(request, user_id):
     
     # Return user data as JSON response
     return JsonResponse(user_data)
-
 
 
 

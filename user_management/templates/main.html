@@ -1,6 +1,7 @@
 <!-- main.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,92 +11,117 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
 
 </head>
+
 <body>
     <div class="navbar">
         <div class="left">
             <ul>
                 <li><img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo"></li>
-                    <li><p>STYLY</p></li>
-                
+                <li>
+                    <p>STYLY</p>
+                </li>
+
             </ul>
         </div>
-    
-        
 
-        <div class="orange-button">
-            <a href="{% url 'login' %}">Sign in</a><!-- Add registration link here -->
-        </div>
+
+
+       
+            <a href="{% url 'login' %}"> <div class="orange-button">Sign in</div></a><!-- Add registration link here -->
+        
     </div>
 
 
     <!-- Section 1 content -->
     <div class="container">
         <div class="section1">
-            <p class="orange-word" >Welcome the future of design</p>
+            <p class="orange-word">Welcome the future of design</p>
             <div class="left">
-                <p>Where Humans lead, AI Empowers in seconds    </p>
+                <p>Where Humans lead, AI Empowers in seconds </p>
                 <p>Instantly transform any space.<br>
                     Trusted by 2 million users world wide.</p>
+                {% if not request.session.exists and not request.COOKIES.sessionid %}
                 <div class="tryfree-button">
-                    <a href="{% url 'login' %}">Try Free</a><!-- Add registration link here -->
+                    <a href="{% url 'login' %}">Try Free</a>
                 </div>
+                {% endif %}
+
             </div>
         </div>
-  <!-- Section 2 content -->
+        <!-- Section 2 content -->
         <div class="section2">
             <p class="title">Unlock the Potential</p>
             <p>Experience limitless creativity and efficiency with our intuitive</p>
             <div class="gallery">
                 <div class="carousel" id="imageCarousel">
                     <div class="image-container" style="position: relative;">
-                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 1">
-                        <img class="overlay-image" src="{% static 'user_management/css/display_image1_small.png' %}" alt="Overlay Image 1">
+                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}"
+                            alt="Background Image 1">
+                        <img class="overlay-image" src="{% static 'user_management/css/display_image1_small.png' %}"
+                            alt="Overlay Image 1">
                     </div>
                     <div class="image-container" style="position: relative;">
-                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 2">
-                        <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image2.png' %}" alt="Overlay Image 2">
+                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}"
+                            alt="Background Image 2">
+                        <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image2.png' %}"
+                            alt="Overlay Image 2">
                     </div>
                     <div class="image-container" style="position: relative;">
-                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}" alt="Background Image 3">
-                        <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image3.png' %}" alt="Overlay Image 3">
+                        <img class="background-image" src="{% static 'user_management/css/display_image1.png' %}"
+                            alt="Background Image 3">
+                        <img class="overlay-image" src="{% static 'path_to_your_overlay_image/overlay_image3.png' %}"
+                            alt="Overlay Image 3">
                     </div>
                     <!-- Add more images as needed -->
                 </div>
-                
 
-                
+
+
                 <div class="pagination" id="paginationDots"></div>
-            
+
             </div>
         </div>
 
         <div class="section3">
-        
+
             <div class="title-block">
                 <p>Design Beyond Limits<br>
-                <span style="font-size: 20px;">Where Humans and AI Collaborate</span></p>
+                    <span style="font-size: 20px;">Where Humans and AI Collaborate</span>
+                </p>
             </div>
-            
+
         </div>
-        
-    
+
+
         <div class="section4">
             <p class="title">How to Use in 3 Easy Steps</p>
             <p>Experience limitless creativity and efficiency with our intuitive</p>
             <div class="card-container">
                 <div class="card">
-                        <img src="{% static 'user_management/css/uploadIcon.png' %}" alt="upload icon">
-                        <p>Step 1
+                    <img src="{% static 'user_management/css/uploadIcon.png' %}" alt="upload icon">
+                    <p>Step 1
                         Upload</p>
-                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                            <a href="#">Learn more</a>
-                    
+                    <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <a href="#">Learn more</a>
+
+                </div>
+                <div class="card">
+                    <img src="{% static 'user_management/css/uploadIcon.png' %}" alt="upload icon">
+                    <p>Step 1
+                        Upload</p>
+                    <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <a href="#">Learn more</a>
+
+                </div>
+                <div class="card">
+                    <img src="{% static 'user_management/css/uploadIcon.png' %}" alt="upload icon">
+                    <p>Step 1
+                        Upload</p>
+                    <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <a href="#">Learn more</a>
+
                 </div>
 
-
-
-                <div class="card">Card 2</div>
-                <div class="card">Card 3</div>
             </div>
         </div>
         <div class="section5">
@@ -104,7 +130,7 @@
             <p class="title">Select Your Design</p>
             <div class="designImage">
                 <img src="{% static 'user_management/css/ImageDisplay.png' %}">
-                <img src=""#>
+                <img src="" #>
             </div>
         </div>
         <div class="section6">
@@ -122,114 +148,115 @@
                 <div class="card">
                     <img src="{% static 'user_management/css/uploadIcon.png' %}" alt="upload icon">
                     <p>Step 1
-                    Upload</p>
+                        Upload</p>
                     <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <a href="#">Learn more</a>
-                    
+                    <a href="#">Learn more</a>
+
                 </div>
                 <div class="card">Card 2</div>
                 <div class="card">Card 3</div>
             </div>
-            
+
         </div>
-        <div class="footer1"> 
+        <div class="footer1">
             <div class="logo">
                 <img src="{% static 'user_management/css/Styly_logo.jpg' %}" alt="STYLY Logo"></li>
                 <p>STYLY</p>
 
             </div>
-            
-                <p>Copyright 2024 Styly</p>
+
+            <p>Copyright 2024 Styly</p>
         </div>
-    </div>   
+    </div>
 
     </div>
 
 
-    
-</div>
 
-<script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    </div>
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-    });
 
-    // Function to check if session ID exists
-    function hasSessionId() {
-        return document.cookie.split(';').some((item) => item.trim().startsWith('sessionid='));
-    }
-
-    // Function to handle payment redirect
-    function redirectToPayment(stripeUrl) {
-        // Check if the session ID exists (user is authenticated)
-        if (!hasSessionId()) {
-            // Store the target Stripe API URL in sessionStorage
-            sessionStorage.setItem('targetStripeUrl', stripeUrl);
-            // Redirect the user to the login page with the next parameter
-            window.location.href = "/login/"; // Redirect to login page
-        } else {
-            // Redirect to the specified Stripe API URL for payment
-            window.location.href = stripeUrl;
+        // Function to check if session ID exists
+        function hasSessionId() {
+            return document.cookie.split(';').some((item) => item.trim().startsWith('sessionid='));
         }
-    }
 
-    
-
-    // Event listeners for different plan cards
-    document.getElementById("basicPlan").addEventListener("click", function() {
-        redirectToPayment("https://buy.stripe.com/test_6oEeUZ6Fi82b31C7ss"); // Change plan URL as needed
-    });
-
-    document.getElementById("intermediatePlan").addEventListener("click", function() {
-        redirectToPayment("https://buy.stripe.com/test_dR6dQV8Nq0zJ31C5kl"); // Change plan URL as needed
-    });
-
-    document.getElementById("advancedPlan").addEventListener("click", function() {
-        redirectToPayment("https://buy.stripe.com/test_7sI4gl2p2ben59K9AC"); // Change plan URL as needed
-    });
-
-    
-
-  // Create pagination dots for each image
-const carousel = document.getElementById('imageCarousel');
-const pagination = document.getElementById('paginationDots');
-
-for (let i = 0; i < carousel.children.length; i++) {
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    dot.addEventListener('click', () => {
-        carousel.scrollLeft = i * carousel.offsetWidth;
-        updateActiveDot(i);
-    });
-    pagination.appendChild(dot);
-}
-
-// Update active dot based on scroll position
-function updateActiveDot(index) {
-    const dots = pagination.querySelectorAll('.dot');
-    dots.forEach((dot, i) => {
-        if (i === index) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
+        // Function to handle payment redirect
+        function redirectToPayment(stripeUrl) {
+            // Check if the session ID exists (user is authenticated)
+            if (!hasSessionId()) {
+                // Store the target Stripe API URL in sessionStorage
+                sessionStorage.setItem('targetStripeUrl', stripeUrl);
+                // Redirect the user to the login page with the next parameter
+                window.location.href = "/login/"; // Redirect to login page
+            } else {
+                // Redirect to the specified Stripe API URL for payment
+                window.location.href = stripeUrl;
+            }
         }
-    });
-}
-
-// Listen for scroll events to update active dot
-carousel.addEventListener('scroll', () => {
-    const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-    updateActiveDot(index);
-});
 
 
-</script>
+
+        // Event listeners for different plan cards
+        document.getElementById("basicPlan").addEventListener("click", function () {
+            redirectToPayment("https://buy.stripe.com/test_6oEeUZ6Fi82b31C7ss"); // Change plan URL as needed
+        });
+
+        document.getElementById("intermediatePlan").addEventListener("click", function () {
+            redirectToPayment("https://buy.stripe.com/test_dR6dQV8Nq0zJ31C5kl"); // Change plan URL as needed
+        });
+
+        document.getElementById("advancedPlan").addEventListener("click", function () {
+            redirectToPayment("https://buy.stripe.com/test_7sI4gl2p2ben59K9AC"); // Change plan URL as needed
+        });
+
+
+
+        // Create pagination dots for each image
+        const carousel = document.getElementById('imageCarousel');
+        const pagination = document.getElementById('paginationDots');
+
+        for (let i = 0; i < carousel.children.length; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => {
+                carousel.scrollLeft = i * carousel.offsetWidth;
+                updateActiveDot(i);
+            });
+            pagination.appendChild(dot);
+        }
+
+        // Update active dot based on scroll position
+        function updateActiveDot(index) {
+            const dots = pagination.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Listen for scroll events to update active dot
+        carousel.addEventListener('scroll', () => {
+            const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+            updateActiveDot(index);
+        });
+
+
+    </script>
 
 </body>
+
 </html>
