@@ -30,7 +30,7 @@ from django.conf import settings
 from django.contrib import messages
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-
+BASE_DOMAIN = settings.BASE_DOMAIN
 
 
 from django.shortcuts import redirect
@@ -103,7 +103,7 @@ def user_homepage(request):
     return render(request, 'user_management/profile.html')
 
 def priceplan(request):
-    # Logic to fetch and prepare price plan content
+
     return render(request, 'user_management/priceplan.html')
 
 
@@ -150,25 +150,6 @@ def register(request):
     return render(request, 'user_management/register.html', {'form': form})
 
 
-def create_payment(request):
-    if request.method == 'POST':
-        token = request.POST.get('stripeToken')
-        amount = request.POST.get('amount')
-        try:
-            charge = stripe.Charge.create(
-                amount=amount,
-                currency='usd',
-                source=token,
-                description='Example charge'
-            )
-            return JsonResponse({'success': True})
-        except stripe.error.CardError as e:
-            # Handle card errors
-            return JsonResponse({'error': str(e)})
-        except stripe.error.StripeError as e:
-            # Handle other Stripe errors
-            return JsonResponse({'error': str(e)})
-        
 
 
 def get_all_user_data(request):
@@ -305,3 +286,60 @@ def upload_image(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+endpoint_secret = 'whsec_066d2c4526ad54fdf6c36e2b3891810e0a8d72990c06c8347464f6f446f19c34'
+
+
+
+@csrf_exempt
+@require_POST
+def stripe_webhook(request):
+    payload = request.body
+    sig_header = request.headers.get('stripe-signature')
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+        # Invalid payload
+        return JsonResponse({'success': False}, status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return JsonResponse({'success': False}, status=400)
+
+    # Handle the event
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+        payment_id = session['id']
+        amount = session['amount_total'] / 100  # Convert from cents to dollars
+        currency = session['currency'].upper()
+        payment_method = session['payment_method_types'][0]
+        customer_id = session['customer']
+        
+        # Get or create the user associated with the customer ID
+        user = None  # You need to implement this part according to your user model and Stripe Customer objects
+
+        # Create Payment instance and save to database
+        payment = Payment.objects.create(
+            user=user,
+            payment_id=payment_id,
+            amount=amount,
+            currency=currency,
+            payment_method=payment_method,
+            customer_id=customer_id,
+        )
+
+        return JsonResponse({'success': True})  # Respond with success
+    else:
+        # Unexpected event type
+        return JsonResponse({'success': False})

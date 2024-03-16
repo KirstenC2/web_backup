@@ -18,6 +18,6 @@ urlpatterns = [
     path('auth/google/', google_login, name='google_login'),  # Google OAuth login view
     #path('accounts/google/login/callback/', google_oauth_callback, name='google_oauth_callback'),  # Google OAuth callback view
     path('priceplan/', views.priceplan, name='priceplan'),
-    
+    path('stripe-webhook/', views.stripe_webhook, name='stripe_webhook'),
     
 ]
