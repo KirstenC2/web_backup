@@ -300,46 +300,33 @@ endpoint_secret = 'whsec_066d2c4526ad54fdf6c36e2b3891810e0a8d72990c06c8347464f6f
 
 
 
+import json
+
 @csrf_exempt
 @require_POST
 def stripe_webhook(request):
     payload = request.body
-    sig_header = request.headers.get('stripe-signature')
+    event = None
 
     try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, endpoint_secret
+        event = stripe.Event.construct_from(
+        json.loads(payload), stripe.api_key
         )
     except ValueError as e:
         # Invalid payload
-        return JsonResponse({'success': False}, status=400)
-    except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
-        return JsonResponse({'success': False}, status=400)
+        return HttpResponse(status=400)
 
     # Handle the event
-    if event['type'] == 'checkout.session.completed':
-        session = event['data']['object']
-        payment_id = session['id']
-        amount = session['amount_total'] / 100  # Convert from cents to dollars
-        currency = session['currency'].upper()
-        payment_method = session['payment_method_types'][0]
-        customer_id = session['customer']
-        
-        # Get or create the user associated with the customer ID
-        user = None  # You need to implement this part according to your user model and Stripe Customer objects
-
-        # Create Payment instance and save to database
-        payment = Payment.objects.create(
-            user=user,
-            payment_id=payment_id,
-            amount=amount,
-            currency=currency,
-            payment_method=payment_method,
-            customer_id=customer_id,
-        )
-
-        return JsonResponse({'success': True})  # Respond with success
+    if event.type == 'payment_intent.succeeded':
+        payment_intent = event.data.object # contains a stripe.PaymentIntent
+        # Then define and call a method to handle the successful payment intent.
+        # handle_payment_intent_succeeded(payment_intent)
+    elif event.type == 'payment_method.attached':
+        payment_method = event.data.object # contains a stripe.PaymentMethod
+        # Then define and call a method to handle the successful attachment of a PaymentMethod.
+        # handle_payment_method_attached(payment_method)
+    # ... handle other event types
     else:
-        # Unexpected event type
-        return JsonResponse({'success': False})
+        print('Unhandled event type {}'.format(event.type))
+
+    return HttpResponse(status=200)
